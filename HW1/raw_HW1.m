@@ -5,7 +5,7 @@ g = @(x) (x ./ 2) + (1 ./ x);
 init_guess_fpm = 1;
 tolerance = 10e-5;
 
-[root_1, nits_1] = fpm(g, init_guess_fpm, [], tolerance);
+[root_1, nits_1, p_fpm] = fpm(g, init_guess_fpm, [], tolerance);
 fprintf('Root: %.6f\nIterations: %d\n', root_1, nits_1);
 
 % Using Newton's Method
@@ -13,7 +13,7 @@ f = @(z) z - g(z);
 df = @(n) (0.5) + (1 ./ (n^2));
 init_guess_nm = 2;
 
-[root_2, nits_2] = nm(f, df, init_guess_nm, [] ,tolerance);
+[root_2, nits_2, p_nm] = nm(f, df, init_guess_nm, [] ,tolerance);
 fprintf('Root: %.6f\nIterations: %d\n', root_2, nits_2);
 %% Question 2
 

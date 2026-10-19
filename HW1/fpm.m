@@ -1,6 +1,6 @@
 % This function was downloaded from the files on Canvas
 
-function [root, nits] = fpm(g, x0, N, tol)
+function [root, nits,p] = fpm(g, x0, N, tol)
 % fpm_lab finds a fixed point of the equation x = g(x) using iteration.
 % Inputs:
 % g - Function handle representing g(x)
@@ -13,9 +13,16 @@ end
 if nargin < 4
     tol = 1.0e-9; % Default tolerance
 end
+
+p(1) = x0;
+
 for i = 1:N
     x1 = g(x0); % Compute the next approximation using g(x)
     % Check for convergence
+
+    % EDITED: 
+    p(i+1) = x1;
+
     if abs(x1 - x0) < tol
         root = x1;
         nits = i;
