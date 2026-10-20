@@ -101,6 +101,7 @@ fprintf('Time when object reaches the ground: %.6f seconds\nIterations: %d\n', .
 % Create a plot:
 bsm_error = s_root - p_bsm;
 figure;
+
 plot(p_bsm, bsm_error, "o")
 
 hold on;

@@ -30,9 +30,9 @@ end
 n = ceil((log10(abs(x2 - x1)) - log10(tol))/log10(2));
 for i = 1:n
     x3 = x1 + 0.5*(x2 - x1);
-    
+
     %EDITED:
-    p(i) = x3
+    p(i) = x3;
 
     f3 = f(x3);
     if (switch_val == 1) && (abs(f3) > abs(f1)) && (abs(f3) > abs(f2))
