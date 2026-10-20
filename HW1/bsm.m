@@ -1,6 +1,6 @@
 % This function was downloaded from the files on Canvas
 
-function [root, n] = bsm(f, x1, x2, switch_val, tol)
+function [root, n,p] = bsm(f, x1, x2, switch_val, tol)
 % Bisection method to find root of function f
 % root = bisection(f, x1, x2, switch_val, tol)
 % Inputs:
@@ -30,6 +30,10 @@ end
 n = ceil((log10(abs(x2 - x1)) - log10(tol))/log10(2));
 for i = 1:n
     x3 = x1 + 0.5*(x2 - x1);
+    
+    %EDITED:
+    p(i) = x3
+
     f3 = f(x3);
     if (switch_val == 1) && (abs(f3) > abs(f1)) && (abs(f3) > abs(f2))
         root = NaN;
